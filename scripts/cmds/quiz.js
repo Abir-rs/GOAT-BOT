@@ -19,7 +19,7 @@ const axios = require('axios');
 module.exports = {
   config: {
     name: "quiz",
-    aliases: [],
+    aliases: ["qz",],
     version: "2.0",
     author: "Jun",
     countDown: 2,
