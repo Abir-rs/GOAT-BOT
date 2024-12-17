@@ -4,7 +4,7 @@ const fs = require('fs-extra');
 module.exports = {
 	config: {
 		name: 'Pinterest',
-		aliases: ["pint", "pinter"],
+		aliases: ["pin2", "pinter"],
 		version: '1.2',
 		author: 'Samuel',
 		countDown: 5,
@@ -24,19 +24,6 @@ module.exports = {
 	onStart: async function ({ api, args, event , message }) {
 		const { getPrefix } = global.utils;
 			 const p = getPrefix(event.threadID);
-		const approvedmain = JSON.parse(fs.readFileSync(`${__dirname}/assist_json/approved_main.json`));
-		const bypassmain = JSON.parse(fs.readFileSync(`${__dirname}/assist_json/bypass_id.json`));
-		const bypassmUid = event.senderID;
-		if (bypassmain.includes(bypassmUid)) {
-			console.log(`User ${bypassmUid} is in bypass list. Skipping the main approval check.`);
-		} else {
-			const threadmID = event.threadID;
-			if (!approvedmain.includes(threadmID)) {
-				const msgSend = message.reply(`cmd 'Pinterest' is locked 🔒...\n Reason : Bot's main cmd \nyou need permission to use all main cmds.\n\nType ${p}requestMain to send a request to admin`);
-				setTimeout(async () => {
-					message.unsend((await msgSend).messageID);
-				}, 40000);
-				return;
 			}
 		}  
 
