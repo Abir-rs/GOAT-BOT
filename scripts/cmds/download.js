@@ -2,7 +2,7 @@ const axios = require('axios');
 
 module.exports = {
 	config: {
-		name: "download",
+		name: "ig",
 		version: "1.0",
 		author: "loufi",
 		countDown: 0,
